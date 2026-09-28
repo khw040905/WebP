@@ -1,0 +1,59 @@
+body {
+    background-color: aliceblue;
+    font-family: "휴먼편지체", sans-serif;;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+}
+
+p {
+    font-size: 1em;
+}
+
+hr {
+    border: 1px solid gray;
+}
+
+form {
+    background-color: lightcoral;
+    padding: 10px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    color: navy;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    width: 230px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+}
+
+textarea {
+    width: 280px;
+    height: 110px;
+    margin-left: 20px;
+}
+
+footer {
+    background-color: orange;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    font-style: italic;
+}
