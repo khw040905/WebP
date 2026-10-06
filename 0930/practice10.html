@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>애니메이션 응용</title>
+    <style>
+        /* 애니메이션 키프레임 정의 */
+        @keyframes slide {
+            from {
+                margin-left: 100%; /* 오른쪽 끝에서 시작 */
+            }
+            to {
+                margin-left: 0%;   /* 왼쪽 끝으로 이동 */
+            }
+        }
+
+        /* <p> 태그 애니메이션 및 스타일 설정 */
+        p {
+            animation-name: slide;        /* 실행할 애니메이션 이름 */
+            animation-duration: 3s;       /* 3초 동안 진행 */
+            animation-iteration-count: 1; /* 1회만 진행 */
+        }
+    </style>
+</head>
+<body>
+
+    <h3>애니메이션 응용</h3>
+    <hr>
+
+    <p>질문 있습니다.</p>
+
+</body>
+</html>
