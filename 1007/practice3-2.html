@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.write()</title>
+</head>
+<body>
+<h3>document.write()로 표 만들기</h3>
+<hr>
+<script>
+    document.write("<table border='1'>");
+
+    document.write("<tr><th>n</th>");
+
+    for (let i = 0; i < 10; i++) {
+        document.write("<td>" + i + "</td>");
+    }
+
+    document.write("</tr>");
+
+    document.write("<tr><th>n²</th>");
+
+    for (let i = 0; i < 10; i++) {
+        document.write("<td>" + (i * i) + "</td>");
+    }
+
+    document.write("</tr>");
+
+    document.write("</table>");
+</script>
+
+</body>
+</html>

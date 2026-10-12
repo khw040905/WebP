@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큰 자리수와 낮은자리수 같은지 비교</title>
+</head>
+<body>
+
+    <h3>큰 자리수와 낮은자리수 같은지 비교</h3>
+    <hr>
+
+    <script>
+        let str = prompt("숫자를 입력하세요", "");
+        let n = parseInt(str);
+
+        if (isNaN(n)) {
+            document.write("숫자를 입력해주세요.");
+        } else {
+            let lowest = n % 10; 
+            let highest = n;
+            while (highest >= 10) {
+                highest = Math.floor(highest / 10);
+            }
+            document.write(n + " : ");
+            
+            if (highest === lowest) {
+                document.write("같음");
+            } else {
+                document.write("다름");
+            }
+        }
+    </script>
+</body>
+</html>
