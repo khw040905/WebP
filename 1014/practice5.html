@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 배열 다루기</title>
+</head>
+<body>
+
+    <h3>문자열 배열 다루기</h3>
+    <hr>
+
+    <script>
+        // 주어진 배열 선언
+        let names = new Array("wonsun", "jaemoonlee", "kitae", "gracewhang");
+
+        // (1) names 배열에 들어 있는 각 이름 출력
+        document.write("이름 : ");
+        for (let i = 0; i < names.length; i++) {
+            document.write(names[i] + " ");
+        }
+        document.write("<br>");
+
+        // (2) names 배열에서 가장 긴 이름 출력
+        let longName = names[0];
+        for (let i = 1; i < names.length; i++) {
+            if (names[i].length > longName.length) {
+                longName = names[i];
+            }
+        }
+        document.write("가장 긴 이름 : " + longName + "<br>");
+
+        // (3) names 배열에서 사전에서 가장 먼저 나오는 이름 출력
+        let firstSort = names[0];
+        for (let i = 1; i < names.length; i++) {
+            if (names[i] < firstSort) { // 문자열 크기 비교 (사전 순서)
+                firstSort = names[i];
+            }
+        }
+        document.write("가장 먼저 나오는 이름 : " + firstSort + "<br>");
+
+        // (4) names 배열을 증가 순으로 재 정렬하여 출력
+        let sortedNames = [...names].sort(); // 원본 배열 유지를 위해 복사 후 정렬
+        document.write("증가순 이름 : ");
+        for (let i = 0; i < sortedNames.length; i++) {
+            document.write(sortedNames[i] + " ");
+        }
+        document.write("<br>");
+    </script>
+
+</body>
+</html>

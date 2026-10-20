@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열로 리스트 만들기</title>
+</head>
+<body>
+
+    <h3>라면을 만드는데 필요한 재료</h3>
+    <hr>
+
+    <script>
+        // 제시된 문자열 배열 선언
+        let itemlist = ["라면", "계란", "물", "파"];
+
+        // <ul> 태그 시작 출력
+        document.write("<ul>");
+
+        // 반복문을 돌며 각 배열 원소를 <li> 태그로 감싸서 출력
+        for (let i = 0; i < itemlist.length; i++) {
+            document.write("<li>" + itemlist[i] + "</li>");
+        }
+
+        // </ul> 태그 종료 출력
+        document.write("</ul>");
+    </script>
+
+</body>
+</html>

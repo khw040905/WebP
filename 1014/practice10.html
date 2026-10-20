@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book 객체 배열 만들기</title>
+</head>
+<body>
+
+    <h3>book 객체 배열 만들기</h3>
+    <hr>
+
+    <script>
+        // 5개의 책 정보를 담을 배열 선언
+        let bookArray = new Array();
+
+        // 5번 반복하여 prompt()로 책 정보 입력받기
+        for (let i = 0; i < 5; i++) {
+            let input = prompt("콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력", "HTML5, 황기태, 20000");
+            
+            if (input) {
+                let splitData = input.split(",");
+                
+                // 객체 생성 (문자열 공백 제거 및 가격은 숫자로 변환)
+                let book = {
+                    title: splitData[0].trim(),
+                    author: splitData[1].trim(),
+                    price: parseInt(splitData[2].trim())
+                };
+
+                bookArray[i] = book;
+            }
+        }
+
+        // 입력받은 모든 책 정보 출력
+        document.write("<br>");
+        for (let i = 0; i < bookArray.length; i++) {
+            document.write(bookArray[i].title + ", " + bookArray[i].author + ", " + bookArray[i].price + "<br>");
+        }
+        document.write("<hr>");
+
+        // 가장 가격이 비싼 책 찾기
+        let expensive = bookArray[0];
+        for (let i = 1; i < bookArray.length; i++) {
+            if (bookArray[i].price > expensive.price) {
+                expensive = bookArray[i];
+            }
+        }
+
+        // 가장 비싼 책의 이름 출력
+        document.write("가장 가격이 비싼 책은 " + expensive.title);
+    </script>
+
+</body>
+</html>

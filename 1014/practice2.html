@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정수 정렬</title>
+</head>
+<body>
+<script>
+    let n = prompt("정수 5개를 입력하세요");
+
+    let arr = n.split(" ").map(Number);
+
+    document.write("입력된 수의 배열<br>");
+    document.write(arr.join(" ") + "<br><br>");
+
+    arr.sort((a, b) => a - b);
+    document.write("오름차순으로 정렬한 배열<br>");
+    document.write(arr.join(" ") + "<br><br>");
+
+    arr.sort((a, b) => b - a);
+    document.write("내림차순으로 정렬한 배열<br>");
+    document.write(arr.join(" "));
+</script>
+</body>
+</html>
