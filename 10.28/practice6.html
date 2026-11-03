@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>innerHTML</title>
+</head>
+
+<body>
+    <h3>innerHTML</h3>
+    <hr>
+
+    <p onclick="change()">
+        이번 여름에는 어디로 여행을 갈까요?
+    </p>
+
+    <script>
+        function change() {
+            let text = prompt("HTML 텍스트 혹은 그냥 텍스트를 입력하세요");
+
+            if(text != null) {
+                document.getElementsByTagName("p")[0].innerHTML = text;
+            }
+        }
+    </script>
+
+</body>
+</html>
