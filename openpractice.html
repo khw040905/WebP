@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>마우스 클릭 연습</title>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        width: 35px;
+        height: 35px;
+        border: 1px solid gray;
+        text-align: center;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+</style>
+
+<script>
+    let currentCell;
+
+    function start() {
+        let cells = document.getElementsByTagName("td");
+        let random = Math.floor(Math.random() * cells.length);
+
+        currentCell = cells[random];
+
+        let img = document.createElement("img");
+        img.src = "spongebob.png";
+        currentCell.appendChild(img);
+    }
+
+    function moveImage(cell) {
+        if (cell == currentCell)
+            return;
+
+        let img = currentCell.firstChild;
+        currentCell.removeChild(img);
+
+        cell.appendChild(img);
+        currentCell = cell;
+    }
+</script>
+</head>
+
+<body onload="start()">
+
+<h3>마우스 클릭 연습</h3>
+<hr>
+
+<table>
+<script>
+    for (let i = 0; i < 10; i++) {
+        document.write("<tr>");
+
+        for (let j = 0; j < 10; j++) {
+            document.write('<td onclick="moveImage(this)"></td>');
+        }
+
+        document.write("</tr>");
+    }
+</script>
+</table>
+
+</body>
+</html>

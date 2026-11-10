@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>onblur와 onfocus</title>
+
+    <script>
+        function blurEvent() {
+            document.body.style.backgroundColor = "lightgray";
+        }
+
+        function focusEvent() {
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+</head>
+
+<body onblur="blurEvent()" onfocus="focusEvent()">
+
+    <h3>포커스와 onblur,onfocus</h3>
+    <hr>
+
+    <p>
+        브라우저 밖에 마우스를 클릭하면 window 객체에 blur 이벤트가 발생하고
+        다시 마우스를 클릭하면 window 객체에 focus 이벤트가 발생한다.
+    </p>
+
+    <script>
+        window.onblur = blurEvent;
+        window.onfocus = focusEvent;
+    </script>
+
+</body>
+</html>

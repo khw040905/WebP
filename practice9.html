@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>onmouseover와 onmouseout</title>
+
+<style>
+#explain {
+    position: absolute;
+    visibility: hidden;
+    background-color: lightgray;
+    padding: 5px;
+}
+</style>
+
+<script>
+function showExplain(e, text) {
+    let explain = document.getElementById("explain");
+
+    explain.innerHTML = text;
+    explain.style.left = e.clientX + "px";
+    explain.style.top = e.clientY + "px";
+    explain.style.visibility = "visible";
+}
+
+function hideExplain() {
+    document.getElementById("explain").style.visibility = "hidden";
+}
+</script>
+</head>
+
+<body>
+<h3>아이템에 마우스를 올리면 설명 출력</h3>
+<hr>
+
+<p>여름 방학 때 하고 싶은 것들</p>
+
+<ul>
+    <li onmouseover="showExplain(event, '빨간자전거를 타고 서울, 대전, 대구, 부산 찍고 목포, 인천을 거쳐 달린다')"
+        onmouseout="hideExplain()">자전거로 대한민국 일주</li>
+
+    <li onmouseover="showExplain(event, '세상의 다양한 책을 100권 읽는 것이 목표이다')"
+        onmouseout="hideExplain()">책 100권 읽기</li>
+
+    <li onmouseover="showExplain(event, '철인 3종 경기를 준비한다.')"
+        onmouseout="hideExplain()">철인 3종 경기 준비</li>
+
+    <li onmouseover="showExplain(event, '자바스크립트를 열심히 공부하여 마스터한다')"
+        onmouseout="hideExplain()">자바스크립트 정복</li>
+</ul>
+
+<div id="explain"></div>
+
+</body>
+</html>
