@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>setTimeout 시계</title>
+<script>
+let id;
+
+function clock() {
+    let now = new Date();
+    let time = now.toLocaleTimeString("ko-KR");
+
+    document.getElementById("clock").innerHTML = time;
+
+    clearTimeout(id);
+    id = setTimeout(clock, 1000);
+}
+</script>
+</head>
+<body onload="clock()">
+<h3>div 태그에 시계 만들기</h3>
+<hr>
+<div id="clock"></div>
+</body>
+</html>

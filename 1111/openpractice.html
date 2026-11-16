@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>눈 내리는 마을</title>
+
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    background-image: url("snow.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.snow {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+let snow = [];
+
+for (let i = 0; i < 30; i++) {
+    let obj = document.createElement("div");
+
+    obj.className = "snow";
+    obj.innerHTML = "*";
+    obj.style.left = Math.random() * window.innerWidth + "px";
+    obj.style.top = Math.random() * window.innerHeight + "px";
+    obj.style.fontSize = (10 + Math.random() * 15) + "px";
+
+    document.body.appendChild(obj);
+
+    snow.push({
+        element: obj,
+        speed: 1 + Math.random() * 3
+    });
+}
+
+setInterval(function() {
+    for (let i = 0; i < 30; i++) {
+        let obj = snow[i].element;
+        let top = parseFloat(obj.style.top);
+
+        top += snow[i].speed;
+
+        if (top > window.innerHeight) {
+            top = 0;
+            obj.style.left = Math.random() * window.innerWidth + "px";
+        }
+
+        obj.style.top = top + "px";
+    }
+}, 50);
+</script>
+
+</body>
+</html>

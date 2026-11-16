@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>산수 문제</title>
+<style>
+    .question {
+        display: flex;
+        align-items: center;
+        height: 24px;
+    }
+
+    .formula {
+        display: inline-block;
+        width: 50px;
+    }
+
+    input {
+        width: 65px;
+        height: 18px;
+        box-sizing: border-box;
+    }
+</style>
+<script>
+let answers = [];
+let time = 10;
+let timer;
+
+function makeQuiz() {
+    clearInterval(timer);
+    answers = [];
+    time = 10;
+
+    let questions = document.getElementById("questions");
+    questions.innerHTML = "";
+
+    let operators = ["+", "-", "*", "/"];
+
+    for (let i = 0; i < 4; i++) {
+        let a = Math.floor(Math.random() * 20) + 1;
+        let b = Math.floor(Math.random() * 20) + 1;
+        let op = operators[Math.floor(Math.random() * 4)];
+
+        if (op == "/") a = a * b;
+
+        let answer;
+
+        if (op == "+") answer = a + b;
+        else if (op == "-") answer = a - b;
+        else if (op == "*") answer = a * b;
+        else answer = a / b;
+
+        answers.push(answer);
+
+        questions.innerHTML +=
+            '<div class="question">' +
+            '<span class="formula" id="q' + i + '">' +
+            a + op + b + '</span>' +
+            '<input id="a' + i + '">' +
+            '</div>';
+    }
+
+    document.getElementById("time").innerHTML = time;
+    document.getElementById("score").innerHTML = "0";
+
+    timer = setInterval(countTime, 1000);
+}
+
+function countTime() {
+    time--;
+    document.getElementById("time").innerHTML = time;
+
+    if (time <= 0) {
+        clearInterval(timer);
+        grade();
+    }
+}
+
+function grade() {
+    clearInterval(timer);
+    let count = 0;
+
+    for (let i = 0; i < 4; i++) {
+        let input = document.getElementById("a" + i);
+        let question = document.getElementById("q" + i);
+
+        if (input.value.trim() !== "" &&
+            Number(input.value) === answers[i]) {
+            count++;
+        } else {
+            question.style.textDecoration = "line-through";
+        }
+
+        input.disabled = true;
+    }
+
+    document.getElementById("score").innerHTML = count;
+}
+</script>
+</head>
+<body onload="makeQuiz()">
+<h3>산수 문제를 풀어 봅시다.</h3>
+<p>문제는 자동으로 생성되며, 10초가 지나면 자동 채점됩니다.</p>
+남은 시간 <span id="time">10</span>
+<hr>
+
+<div id="questions"></div>
+
+<button onclick="makeQuiz()">다시</button>
+<span id="score">0</span>
+</body>
+</html>
